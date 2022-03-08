@@ -1,6 +1,6 @@
 package com.threewater;
 
-import org.junit.jupiter.api.AfterAll;
+import com.threewater.util.JedisConnectionFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -22,7 +22,8 @@ public class JedisTest {
     @BeforeEach
     public void setJedis() {
         // 创建Jedis对象
-        jedis = new Jedis("127.0.0.1", 6379);
+        // jedis = new Jedis("127.0.0.1", 6379);
+        jedis = JedisConnectionFactory.getJedis();
         // 设置密码
         jedis.auth("abc036912");
         // 选择库
